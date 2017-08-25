@@ -1,4 +1,4 @@
-# jest-notes
+# jest notes
 things I keep forgetting how to do in Jest
 
 ### Spying on method imported from module and not calling through, i.e. calling mock
