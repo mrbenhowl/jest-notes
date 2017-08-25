@@ -1,7 +1,7 @@
 # jest-notes
 things I keep forgetting how to do in Jest
 
-### SPYING ON METHOD IMPORTED FROM MODULE AND NOT CALLING THROUGH, I.E. CALLING MOCK
+### Spying on method imported from module and not calling through, i.e. calling mock
 ```javascript
 import * as module from 'path/module'
 
@@ -15,7 +15,7 @@ const spy = jest.spyOn(module, 'method')
 spy.mockRestore()
 ```
 
-### SPYING ON METHOD IMPORTED FROM MODULE AND CALLING THROUGH
+### Spying on method imported from module and calling through
 ```javascript
 import * as module from 'path/module'
 
