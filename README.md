@@ -37,7 +37,7 @@ export function * generatorName () {
   }
 }
 
-test('error', () => {
+test('catch block for generator/saga', () => {
   const mockError = {
     message: 'boom!'
   }
