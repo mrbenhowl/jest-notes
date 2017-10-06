@@ -1,5 +1,5 @@
 # jest notes
-things I keep forgetting how to do in Jest
+things I keep forgetting how to do in Jest (with React, Redux-Saga etc)
 
 ### Spying on method imported from module and not calling through, i.e. calling mock
 ```javascript
@@ -25,3 +25,29 @@ const spy = jest.spyOn(module, 'method')
 spy.mockRestore()
 ```
 
+### Testing the catch block in Redux-Saga
+```javascript
+export function * generatorName () {
+  try {
+    yield call(doSomethingPositive)
+    yield call(whatIsYourFavColour)       
+  } catch (error) {
+    yield put(errorActionCreator)
+    throw error
+  }
+}
+
+test('error', () => {
+  const mockError = {
+    message: 'boom!'
+  }
+
+  try {
+    const generatorName = sagaFileContainingGeneratorAbove.generatorName()
+    expect(generatorName.next().value).toEqual(call(doSomethingPositive))
+    expect(generatorName.throw(mockError).value).toEqual(put(errorActionCreator))
+  } catch (error) {
+    expect(error).toEqual(mockError)
+  }
+})
+```
