@@ -49,6 +49,7 @@ test('catch block for generator/saga', () => {
   } catch (error) {
     expect(error).toEqual(mockError)
   }
-  expect(generatorName.next().done).toEqual(true)
+  
+  // expect(generatorName.next().done).toEqual(true) - only needed if we didn't throw error in the generator
 })
 ```
