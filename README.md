@@ -42,8 +42,8 @@ test('catch block for generator/saga', () => {
     message: 'boom!'
   }
 
+  const generatorName = sagaFileContainingGeneratorAbove.generatorName()
   try {
-    const generatorName = sagaFileContainingGeneratorAbove.generatorName()
     expect(generatorName.next().value).toEqual(call(doSomethingPositive))
     expect(generatorName.throw(mockError).value).toEqual(put(errorActionCreator))
   } catch (error) {
